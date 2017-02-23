@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trivia Game</title>
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- CSS stylesheet -->
+  <link rel="stylesheet" type= "text/css" href="assets/css/style.css">
+
+<!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|MedievalSharp" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+
+<div class="jumbotron text-center">
+<h1 id="head">Jazz Trivia!</h1>
+<p id="instructions">Choose the correct answer to these jazz questions!</p>
+</div>
+
+
+<div class= "row">
+
+<div class= "col-lg-12 text-center" id="time-remaining">
+
+<button type="button" class="btn btn-success" id="start-button">Start</button>
+
+  <h1>Time Remaining: <span id="time"></span></h1>
+
+  <h2>What was the nickname of the jazz trumpeter and singer, Louis Armstrong?</h2>
+  <input type="radio" name="answer" value="incorrect"> Bird<br>
+  <input type="radio" name="answer" value="correct"> Satchmo<br>
+  <input type="radio" name="answer" value="incorrect"> The Duke<br>
+  <input type="radio" name="answer" value="incorrect"> Cannonball<br>
+
+
+
+  <h2>Who was the pianist on Miles Davis' seminal 1959 album 'Kind of Blue'?</h2>
+  <input type="radio" name="answer" value="incorrect"> Oscar Peterson<br>
+  <input type="radio" name="answer" value="incorrect"> Art Tatum<br>
+  <input type="radio" name="answer" value="incorrect"> Thelonious Monk<br>
+  <input type="radio" name="answer" value="correct"> Bill Evans<br>
+
+  <h2>Who are the two artists who pioneered the jazz style 'bebop'</h2>
+  <input type="radio" name="answer" value="incorrect"> Art Tatum and John Coltrane<br>
+  <input type="radio" name="answer" value="incorrect"> Dave Brubeck and Count Basie<br>
+  <input type="radio" name="answer" value="correct"> Dizzy Gillespie and Charlie Parker<br>
+  <input type="radio" name="answer" value="incorrect"> Duke Ellington and Charles Mingus<br>
+  </div>
+
+
+
+</div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+  <script type="text/javascript">
+
+
+  // create variables for score and time
+
+  var time = 30;
+  var score = 0;
+  var intervalId
+
+  // display timer
+  $("#time").html(time);
+
+  // start function
+  function start(){
+  intervalId = setInterval(decremtent, 1000);
+  }
+
+  // start over function
+  function restart () {
+    var again=confirm("Play again?")
+    if (again=true){
+    time = 30;
+    score = 0;
+    intervalId = setInterval(decremtent, 1000);
+    $("#time").html(time);
+  } else {
+    stop();
+  };
+};
+
+  // function for timer and starts timer
+  function decremtent(){
+    time--
+    $("#time").html(time);
+    if (time === 0){
+      stop();
+
+    };
+  };
+
+  function stop(){
+    clearInterval(intervalId);
+
+
+    
+
+    // restart()
+  };
+
+  $("#start-button").click(function(){
+    time = 30;
+    start();
+
+  });
+
+
+
+  
+  
+</script>
+  
+</body>
+</html>
